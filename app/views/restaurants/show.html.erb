@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<h2>Reviews</h2>
+<ul>
+  <% if @restaurant.reviews.empty? %>
+    <p>There are no reviews yet...</p>
+  <% else %>
+    <% @restaurant.reviews.each do |review| %>
+      <li><%= review.content %> | <%= link_to 'Delete', restaurant_review_path(@restaurant, review), method: :delete, data: {confirm: "Are you sure?"} %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to 'Write a review', new_restaurant_review_path(@restaurant) %>
+<%= link_to 'Back', restaurant_path(@restaurant) %>

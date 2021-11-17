@@ -1,0 +1,10 @@
+<div class="mx-auto">
+  <%= simple_form_for(restaurant) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    
+    <%= f.submit class:"btn btn-primary w-100%"%>
+  <% end %>
+</div>
+
+<%= link_to 'Back', restaurants_path %>
